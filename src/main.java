@@ -1,22 +1,45 @@
+import java.util.Scanner;
+
 public class main {
 
-    public static void main(String[] args) {
-        System.out.println("Decoding:");
-        String s = "";
-//        for (:
-//             ) {
-//
-//        }
-        for (String arg : args) {
-            s += arg.toString();
-        };
+    public static boolean active = true;
+    private static String propertyOfString = "" +
+            "\n#^*@&%$^*&@@@^&@#<>@#@??/??.&%%!@" +
+            "\n>>PROPERTY_OF_STELLAR_INDUSTRIES>>" +
+            "\n>>READING_USER_ACCESS_LEVEL>>";
+    private static String readingAccessLevelString = "" +
+            "\n>>.........." +
+            "\n>>ACCESS_GRANTED_LEVEL_7>>";
+    private static String initCodexString = "" +
+            "\n>>BEGIN_INIT_SEQUENCE......." +
+            "\n>>CODEX_ONLINE>>";
+    private static String enterDataPrompt = "> ENTER DATA TO DECODE OR\n> ENTER 'X' TO SHUT DOWN:";
 
-        if (args.length > 0) {
-            String message = "";
-            String input = args[0];
-            message = decode(input);
-            System.out.println(message);
+    public static void main(String[] args) {
+        showWelcome();
+        ConsoleLogger.outputLn();
+        ConsoleLogger.outputLn();
+        ConsoleLogger.outputLn();
+        ConsoleLogger.outputLn();
+
+        while (active) {
+            ConsoleLogger.outputLn(enterDataPrompt);
+            Scanner input = new Scanner(System.in);
+            String data = input.nextLine();
+            if (data.toLowerCase().equals("x")) {
+                active = false;
+            } else {
+                System.out.println(decode(data));
+            }
         }
+    }
+
+    private static void showWelcome() {
+        // TODO:
+//        System.out.println(gibberish);
+        ConsoleLogger.output(propertyOfString);
+        ConsoleLogger.output(readingAccessLevelString);
+        ConsoleLogger.output(initCodexString);
     }
 
     private static String decode(String input) {
