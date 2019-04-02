@@ -49,10 +49,10 @@ public class main {
         for (int i = 0; i < inputs.length; i++) {
             // create line divisions:
             if (i % 3 == 0) {
-                value += "\n";
+                value += "\n ";
             }
             if (i % 15 == 0) {
-                value += "\n";
+                value += "\n ";
             }
 
             if (inputs[i].equals("1")) {
